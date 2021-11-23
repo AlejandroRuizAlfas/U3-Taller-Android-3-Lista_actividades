@@ -1,6 +1,9 @@
 package dam.androidalejandror.u3t3menuofactivities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +30,15 @@ public class ItemDetailActivity extends AppCompatActivity {
         name = findViewById(R.id.tvAnNAme);
         year = findViewById(R.id.tvAnYear);
         icon = findViewById(R.id.imgLogo);
+
+        name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+                browserIntent.setData(Uri.parse(item.getWiki()));
+                startActivity(browserIntent);
+            }
+        });
 
         version.setText(item.getVersion());
         api.setText(item.getApi());

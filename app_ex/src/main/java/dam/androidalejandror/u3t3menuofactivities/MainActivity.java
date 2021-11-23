@@ -2,6 +2,8 @@ package dam.androidalejandror.u3t3menuofactivities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +36,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeItem(adaptador));
         itemTouchHelper.attachToRecyclerView(recyclerViewCantante);
+
+        ImageView empty;
+        empty = findViewById(R.id.imgEmpty);
+        empty.setImageResource(R.drawable.empty);
+        if (adaptador.getItemCount() > 0){
+            empty.setVisibility(View.INVISIBLE);
+        }else {
+            empty.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
