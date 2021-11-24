@@ -74,6 +74,7 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
         return versionList.size();
     }
 
+    //TODO Ejercicio4 deleteItem
     public void deleteItem(int position){
         this.versionList.remove(position);
         notifyItemRemoved(position);

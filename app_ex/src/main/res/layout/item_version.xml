@@ -7,8 +7,7 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         app:cardElevation="20dp">
@@ -72,7 +71,7 @@
                     android:autoLink="web"
                     android:text="TextView"
                     android:textColor="#127BDC"
-                    android:textSize="18sp" />
+                    android:textSize="17sp" />
             </LinearLayout>
         </LinearLayout>
 

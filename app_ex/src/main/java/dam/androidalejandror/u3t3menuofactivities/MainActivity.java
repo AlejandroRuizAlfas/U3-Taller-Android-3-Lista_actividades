@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(view -> {
             //TODO Ejercicio4 hide image
             empty.setVisibility(View.INVISIBLE);
-            item.add(new Item("Version: 13", "API: 32", "Comming Soon! Android 13", R.drawable.lollipop, "2022", "https://es.wikipedia.org/wiki/Android_Lollipop"));
+            item.add(new Item("Version: 13", "API: 32", "Comming Soon! Android 13", R.drawable.a13, "2022", "https://en.wikipedia.org/wiki/Android_(operating_system)"));
             adaptador.notifyDataSetChanged();
         });
         del.setOnClickListener(view -> {
