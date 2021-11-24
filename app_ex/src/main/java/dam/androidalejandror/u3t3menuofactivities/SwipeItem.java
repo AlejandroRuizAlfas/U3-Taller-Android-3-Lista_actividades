@@ -3,13 +3,13 @@ package dam.androidalejandror.u3t3menuofactivities;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
-
+// TODO Ejericico4 - Clase Swipe
 public class SwipeItem extends ItemTouchHelper.SimpleCallback {
 
     RecyclerViewAdaptador adaptador;
 
     SwipeItem(RecyclerViewAdaptador adaptador){
-        super(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
+        super(0, ItemTouchHelper.RIGHT);
         this.adaptador = adaptador;
     }
 

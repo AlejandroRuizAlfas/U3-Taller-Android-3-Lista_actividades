@@ -3,6 +3,7 @@ package dam.androidalejandror.u3t3menuofactivities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -13,11 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements RecyclerViewAdaptador.OnItemClickListener{
+public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerViewCantante;
+    private RecyclerView recyclerViewVersiones;
     private RecyclerViewAdaptador adaptador;
-
+    private ArrayList<Item> item = new ArrayList<>();
+    private ArrayList<Item> itemRestore = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,37 +30,48 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
     }
 
     private void setUI() {
-        recyclerViewCantante = (RecyclerView) findViewById(R.id.recyclerCantante);
-        recyclerViewCantante.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewVersiones = (RecyclerView) findViewById(R.id.recyclerVersions);
+        recyclerViewVersiones.setLayoutManager(new LinearLayoutManager(this));
 
         adaptador = new RecyclerViewAdaptador(obtenerVersiones());
-        recyclerViewCantante.setAdapter(adaptador);
+        recyclerViewVersiones.setAdapter(adaptador);
 
+        //TODO Ejericio4 Main
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeItem(adaptador));
-        itemTouchHelper.attachToRecyclerView(recyclerViewCantante);
+        itemTouchHelper.attachToRecyclerView(recyclerViewVersiones);
 
+        //TODO Ejercicio3 buttonID's / actions
         ImageView empty;
         empty = findViewById(R.id.imgEmpty);
-        empty.setImageResource(R.drawable.empty);
-        if (adaptador.getItemCount() > 0){
+        Button add,del,rest;
+        add = findViewById(R.id.btnAdd);
+        del = findViewById(R.id.btnDel);
+        rest = findViewById(R.id.btnRest);
+
+        add.setOnClickListener(view -> {
+            //TODO Ejercicio4 hide image
             empty.setVisibility(View.INVISIBLE);
-        }else {
+            item.add(new Item("Version: 13", "API: 32", "Comming Soon! Android 13", R.drawable.lollipop, "2022", "https://es.wikipedia.org/wiki/Android_Lollipop"));
+            adaptador.notifyDataSetChanged();
+        });
+        del.setOnClickListener(view -> {
+            itemRestore.addAll(item);
+            item.clear();
+            adaptador.notifyDataSetChanged();
+            //TODO Ejercicio4 show image
             empty.setVisibility(View.VISIBLE);
-        }
+        });
+        rest.setOnClickListener(view -> {
+            empty.setVisibility(View.INVISIBLE);
+            item.addAll(itemRestore);
+            itemRestore.clear();
+            adaptador.notifyDataSetChanged();
+        });
+
     }
 
-    @Override
-    public void onItemClick(String activityName) {
-        Toast.makeText(this, activityName,Toast.LENGTH_LONG).show();
-
-        String value= this.getClass().getName();
-        Intent i = new Intent(this,ItemDetailActivity.class);
-        i.putExtra("key",value);
-        startActivity(i);
-    }
-
+    //TODO Ejercicio2 generar 8 versiones
     public ArrayList<Item> obtenerVersiones(){
-        ArrayList<Item> item = new ArrayList<>();
         item.add(new Item("Version: 5","API: 21","Lollipop",R.drawable.lollipop,"2014","https://es.wikipedia.org/wiki/Android_Lollipop"));
         item.add(new Item("Version: 6","API: 23","Marshmallow",R.drawable.amarsh,"2015","https://es.wikipedia.org/wiki/Android_Marshmallow"));
         item.add(new Item("Version: 7","API: 24","Nougat",R.drawable.anougat,"2016","https://es.wikipedia.org/wiki/Android_Nougat"));

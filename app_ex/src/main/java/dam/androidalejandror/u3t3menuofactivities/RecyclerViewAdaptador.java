@@ -21,7 +21,6 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private TextView version, api, name;
         ImageView icon;
-        ImageView empty;
 
 
         public ViewHolder(View itemView, ArrayList<Item> versionList) {
@@ -31,6 +30,7 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
             name = (TextView) itemView.findViewById(R.id.tvName);
             icon = (ImageView) itemView.findViewById(R.id.logo);
 
+            //TODO Ejericicio1 sendIntentOnCLick
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
