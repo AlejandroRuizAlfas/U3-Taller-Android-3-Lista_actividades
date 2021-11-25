@@ -1,7 +1,7 @@
 package dam.androidalejandror.u3t3menuofactivities;
 
 import java.io.Serializable;
-
+//TODO Ejercicio2 Item class
 public class Item implements Serializable {
     private String version, api, name, year, wiki;
     private int icon;

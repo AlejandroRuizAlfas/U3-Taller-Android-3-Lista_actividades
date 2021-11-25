@@ -1,11 +1,9 @@
 package dam.androidalejandror.u3t3menuofactivities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -17,7 +15,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewVersiones;
-    private RecyclerViewAdaptador adaptador;
+    private MyAdapter adaptador;
     private ArrayList<Item> item = new ArrayList<>();
     private ArrayList<Item> itemRestore = new ArrayList<>();
 
@@ -33,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewVersiones = (RecyclerView) findViewById(R.id.recyclerVersions);
         recyclerViewVersiones.setLayoutManager(new LinearLayoutManager(this));
 
-        adaptador = new RecyclerViewAdaptador(obtenerVersiones());
+        adaptador = new MyAdapter(obtenerVersiones());
         recyclerViewVersiones.setAdapter(adaptador);
 
         //TODO Ejericio4 Main

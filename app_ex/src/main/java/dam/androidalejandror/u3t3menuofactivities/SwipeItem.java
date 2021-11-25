@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 // TODO Ejericico4 - Clase Swipe
 public class SwipeItem extends ItemTouchHelper.SimpleCallback {
 
-    RecyclerViewAdaptador adaptador;
+    MyAdapter adaptador;
 
-    SwipeItem(RecyclerViewAdaptador adaptador){
+    SwipeItem(MyAdapter adaptador){
         super(0, ItemTouchHelper.RIGHT);
         this.adaptador = adaptador;
     }

@@ -30,7 +30,6 @@ public class ItemDetailActivity extends AppCompatActivity {
     }
 
     public void setUI(){
-
         //TODO Ejercicio1 getIntent
         Item item = (Item) getIntent().getSerializableExtra("version");
         TextView version, api, name, year;

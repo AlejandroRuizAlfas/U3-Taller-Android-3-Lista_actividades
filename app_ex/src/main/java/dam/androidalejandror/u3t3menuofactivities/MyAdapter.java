@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdaptador.ViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     public interface OnItemClickListener {
         void onItemClick(String activityName);
@@ -50,7 +50,7 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
     public ArrayList<Item> versionList;
 
 
-    public RecyclerViewAdaptador(ArrayList<Item> versionList) {
+    public MyAdapter(ArrayList<Item> versionList) {
         this.versionList = versionList;
     }
 
